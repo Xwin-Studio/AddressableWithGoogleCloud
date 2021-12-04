@@ -10,20 +10,15 @@ public class S_LoadAddressable : MonoBehaviour
     public AssetReference m_Scene;
     public TextMeshProUGUI m_Text_Alert;
     public TextMeshProUGUI m_Text_Process;
-
-
     // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.F))
         {
             m_Text_Alert.text = "Start Load";
-            //Addressables.GetDownloadSizeAsync(m_LoadAsset);
             StartCoroutine(LoadAssets());
         }
     }
-
-
     private IEnumerator LoadAssets()
     {
         var isDone = false;

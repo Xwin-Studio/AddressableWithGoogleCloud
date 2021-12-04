@@ -9,6 +9,7 @@ using System.IO;
 
 public class S_GenerateV4SignedReadUrl : MonoBehaviour
 {
+    //Script base on: https://cloud.google.com/storage/docs/samples/storage-generate-signed-url-v4
     //This get signed Url to bundle file on google cloud
     public string m_BucketName;
     [SerializeField]
@@ -19,10 +20,7 @@ public class S_GenerateV4SignedReadUrl : MonoBehaviour
                 m_BucketName, _ObjectPathOnCloud);
         return _SignURL;
     }
-
-    public string GenerateV4SignedReadUrl(
-        string bucketName = "your-unique-bucket-name",
-        string objectName = "your-object-name")
+    public string GenerateV4SignedReadUrl(string bucketName = "your-unique-bucket-name", string objectName = "your-object-name")
     {
         //Cause FromServiceAccountPath need a path to file key but can't access file in android 
         //=>create new json file from Text asset key
@@ -32,6 +30,7 @@ public class S_GenerateV4SignedReadUrl : MonoBehaviour
         UrlSigner urlSigner = UrlSigner.FromServiceAccountPath(_path);
         // V4 is the default signing version.
         string url = urlSigner.Sign(bucketName, objectName, TimeSpan.FromSeconds(50), HttpMethod.Get);
+        //Clean File Credentical.json
         File.WriteAllText(_path, "");
         return url;
     }

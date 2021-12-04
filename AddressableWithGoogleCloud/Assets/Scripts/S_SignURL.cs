@@ -1,26 +1,17 @@
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
+
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.ResourceLocations;
-using TMPro;
-using UnityEngine.ResourceManagement.AsyncOperations;
-using UnityEngine.AddressableAssets.ResourceLocators;
-using UnityEngine.Networking;
 
 public class S_SignURL : MonoBehaviour
 {
+    //this Script Base on https://docs.unity3d.com/Packages/com.unity.addressables@1.14/manual/TransformInternalId.html
     public S_GenerateV4SignedReadUrl m_SingURL;
-
     void Start()
     {
         //Need To Fix All Bundle path in this func
         Addressables.ResourceManager.InternalIdTransformFunc += TransformFuncContent;
     }
-
     string TransformFuncContent(IResourceLocation location)
     {
         //Get the url you want to use to point to your current server
