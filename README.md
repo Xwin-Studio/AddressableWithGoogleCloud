@@ -1,6 +1,8 @@
 # AddressableWithGoogleCloud
 Unity Template Addressable With Google Cloud
-After download you need to :
+
+After download you need to:
+
 1: Build your addressable asset:
 ![image](https://user-images.githubusercontent.com/47206910/144771666-52a5b68a-5743-4b80-b263-8f7813e42255.png)
 
