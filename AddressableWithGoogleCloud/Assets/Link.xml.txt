@@ -1,0 +1,8 @@
+<linker>
+  <assembly fullname="System.Core">
+    <type fullname="System.Linq.Expressions.Interpreter.LightLambda" preserve="all" />
+  </assembly>
+  <assembly fullname="Google.Cloud.Storage.V1">
+    <type fullname="Google.Cloud.Storage.V1*" preserve="all" />
+  </assembly>
+</linker>
